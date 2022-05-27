@@ -1,0 +1,32 @@
+.App-header {
+  background-color: #282c34;
+  min-height: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  margin-bottom: 5vh;
+  text-align: center;
+}
+.wrapper-class {
+  width: 50rem;
+  padding: 1rem;
+  padding-bottom: 5rem;
+  border: 1px solid #ccc;
+  height: 7rem;
+  background-color: rgb(153 27 27);
+}
+.editor-class {
+  background-color: #ccc;
+  overflow: scroll;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  background-color: black;
+  color: white;
+}
+.toolbar-class {
+  overflow: scroll;
+  border: 1px solid #ccc;
+}
