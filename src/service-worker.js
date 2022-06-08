@@ -69,4 +69,6 @@ self.addEventListener('message', (event) => {
   }
 });
 
+console.log("service worker is working")
+
 // Any other custom service worker logic can go here.

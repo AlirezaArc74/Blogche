@@ -2,20 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="./favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./logo192.png" />
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    
     <link rel=”manifest” href=”/manifest.webmanifest”>
 
     <link rel="manifest" href="./manifest.json">
+    <!-- <link href="../src/sw.js" /> -->
 
     <script
       src="https://cdn.tiny.cloud/1/c5z4fa6vguypc5cqkbvq3rzzfxwjvho0jk53egogbgwc50t0/tinymce/6/tinymce.min.js"
@@ -27,5 +28,14 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+<!-- <link href="../" /> -->
+    
+    <!-- <script>
+      if("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("../src/service-worker.js")
+        .then((reg) => console.log("service worker is registred", reg))
+        .catch((err) => console.log("service worker not registred", err) )
+      }
+    </script> -->
   </body>
 </html>
