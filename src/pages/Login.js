@@ -1,13 +1,10 @@
 import { UserContext } from "../UserContext";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import "../App.css";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import Cookies from "universal-cookie";
-import { Outlet, useNavigate } from "react-router-dom";
-import Header from "../components/headers/Header";
+import {  useNavigate } from "react-router-dom";
 import giutarMan from "../img/guitarman.webp";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import lion from "../img/Lion-dark.jpeg";
 import successToast from '../components/successToast'
 import  { Toaster } from "react-hot-toast";
 import errorToast from "../components/errorToast";
@@ -33,7 +30,7 @@ const Login = () => {
 
   // console.log(modal);
 
-  const login = async () => {
+  const login =  () => {
     fetch("http://localhost:4000/user/login", {
       method: "POST", // or 'PUT'
       headers: {
@@ -44,10 +41,10 @@ const Login = () => {
         password: "1111",
       }),
     })
-      .then((data) => {
-        console.log(data);
+      .then((res) => {
+        console.log(res);
         console.log("!!!!");
-        return data.json();
+        return res.json();
       })
       .then(({ token }) => {
         console.log(token);
@@ -60,29 +57,35 @@ const Login = () => {
        },1000) ;
       });
   };
+  console.log(usernameInput)
 
   // console.log(typeof usernameInput)
+
+  useEffect(() => {
+    if (cookies.get("ut")) return navigate("/newblog")
+  }, []);
+  
 
   const learnMoreClick = () => {
     console.log("rrrrrr");
     setLearnModal(!learnModal);
   };
 
-  if (cookies.get("ut"))
-    return (
-      <div className="">
-        <img className="w-[72rem] h-[41.1rem] " src={lion} />
-        <div className="absolute left-[25rem] top-[6rem] bg-green-400 w-[22rem] h-[6rem] text-center  ">
-          <h1 className="mt-8"> Nice! You are login </h1>
-        </div>
-      </div>
-    );
+  // if (cookies.get("ut"))
+  //   return (
+  //     <div className="">
+  //       <img className="w-[72rem] h-[41.1rem] " src={lion} />
+  //       <div className="absolute left-[25rem] top-[6rem] bg-green-400 w-[22rem] h-[6rem] text-center  ">
+  //         <h1 className="mt-8"> Nice! You are login </h1>
+  //       </div>
+  //     </div>
+  //   );
 
   return (
     <div className=" h-[41rem] ">
       <Toaster />
 
-      <img className="h-[41rem]  w-[72rem] " src={giutarMan} />
+      <img className="h-screen  w-screen " src={giutarMan} />
 
       {modal ? (
         <div className="absolute left-[25rem] top-[6rem] bg-red-500 w-[22rem] h-[5rem] rounded-[20px] text-center ">
@@ -98,8 +101,8 @@ const Login = () => {
         </button>
       </div>
 
-      <div className="w-[24rem] h-[33rem] bg-black opacity-60 left-[26rem] absolute top-[5rem]"></div>
-      <div className=" w-[24rem] h-[32rem] left-[26rem] absolute top-[5rem]">
+      <div className="w-[24rem] h-[33rem] bg-black opacity-60 left-[33rem] absolute top-[5rem]"></div>
+      <div className=" w-[24rem] h-[32rem] left-[33rem] absolute top-[5rem]">
         <div className="text-white mt-[3rem] ml-[4rem] w-[14rem]  ">
           <h1 className="text-[20px] ">Login</h1>
           <input

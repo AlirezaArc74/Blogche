@@ -1,13 +1,12 @@
-console.log("My custom service worker");
 const self = this;
 const staticCacheName = "site-static";
 
 self.addEventListener("install", (event) => {
-  console.log("service worker has been installed");
+  // console.log("service worker has been installed");
   event.waitUntil(
     caches.open(staticCacheName).then((cache) => {
       return (
-        console.log("caching shell assets"),
+        // console.log("caching shell assets"),
         cache.addAll([])
       );
     })
@@ -15,14 +14,16 @@ self.addEventListener("install", (event) => {
 });
 
 
+
+
 self.addEventListener("fetch", (event) => {
-  console.log("Fetch event for ", event.request.url);
+  // console.log("Fetch event for ", event.request.url);
   event.respondWith(
     caches
       .match(event.request)
       .then((response) => {
         if (response) {
-          console.log("Found ", event.request.url, " in cache");
+          // console.log("Found ", event.request.url, " in cache");
           return response;
         }
         console.log("Network request for ", event.request.url);
@@ -39,15 +40,14 @@ self.addEventListener("fetch", (event) => {
   );
 });
 
-
 self.addEventListener("activate", (event) => {
-  // console.log("service worker has been activated");
   console.log("Activating new service worker...");
 
   const cacheAllowlist = [staticCacheName];
 
   event.waitUntil(
     caches.keys().then((cacheNames) => {
+      console.log(cacheNames)
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheAllowlist.indexOf(cacheName) === -1) {
@@ -58,5 +58,3 @@ self.addEventListener("activate", (event) => {
     })
   );
 });
-
-

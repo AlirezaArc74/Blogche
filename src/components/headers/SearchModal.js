@@ -20,16 +20,16 @@ const {searchModal, setSearchModal} = useContext(UserContext)
           <>
             <div
               onClick={() => closeSearchModalClick()}
-              className=" absolute top-[0rem]   w-[72rem] h-screen bg-neutral-900	 "
+              className=" absolute top-[0rem]   w-screen h-screen bg-neutral-900	 "
             ></div>
             <button
-              className="absolute top-[2rem] ml-[36rem] "
+              className="absolute top-[2rem] ml-[46rem] "
               onClick={() => closeSearchModalClick()}
             >
               <CloseIcon sx={{ color: "white" }} />
             </button>
 
-            <div className="absolute left-[22rem] top-[16rem] text-center text-white">
+            <div className="absolute left-[32rem] top-[16rem] text-center text-white">
               <label className="text-[15px]  ">search for:</label>
               <div className="mt-4">
                 <input

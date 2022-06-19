@@ -91,7 +91,7 @@ const DashboardLayout = () => {
           </>
         ) : null}
 
-        <div className="absolute text-center right-0 w-[10rem] bg-gray-900 text-white top-0 h-[41.1rem]">
+        <div className="absolute text-center right-0 w-[10rem] bg-gray-900 text-white top-0 h-screen">
           <div className="mt-4">
             {/* {console.log(userData.avatar)} */}
             {/* {console.log(domain)} */}
@@ -134,7 +134,7 @@ const DashboardLayout = () => {
 
             <button
               onClick={logoutClick}
-              className=" mt-[10.8rem] ml-[-3rem] w-[7rem]  p-2 hover:bg-red-600 duration-300   bg-red-700 rounded-r-xl 	 "
+              className=" mt-[20.8rem] ml-[-3rem] w-[7rem]  p-2 hover:bg-red-600 duration-300   bg-red-700 rounded-r-xl 	 "
             >
               log out
             </button>

@@ -13,7 +13,7 @@ const SignUp = () => {
   const cookies = new Cookies();
   const navigate = useNavigate();
 
-  const submitUser = async () => {
+  const submitUser = () => {
     fetch("http://localhost:4000/user/signup", {
       method: "POST", // or 'PUT'
       headers: {
@@ -42,7 +42,7 @@ const SignUp = () => {
 
   return (
     <div className="">
-      <img className="h-[41rem] w-screen " src={carCard} />
+      <img className="h-screen w-screen " src={carCard} />
 
       <div className="absolute top-[0rem] left-[0rem] bg-black w-screen text-center opacity-70">
         <button
