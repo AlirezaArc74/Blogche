@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import SendIcon from "@mui/icons-material/Send";
@@ -28,9 +28,6 @@ const UserBlog = () => {
       });
   }, []);
 
-  const showDotsModalClick = () => {
-    console.log("dots modal kar mikone");
-  };
 
   return (
     <>
@@ -64,46 +61,8 @@ const UserBlog = () => {
           </div>
         </div>
 
-        {/* <div className="relative bg-white w-fit grid grid-cols-3 gap-[1rem] h-[30rem] ml-[14rem] mt-[2rem]  ">
-          {userData.map((item) => {
-            return (
-              <>
-                <div className="m-4  border-black border-2 bg-red-400  w-[12rem] flex h-[20rem] over ">
-                  <img
-                    className="w-[5rem] h-[5rem] m-[1rem] rounded-[90px] "
-                    src={`${constants.domain}/${item.avatar}`}
-                    alt="user image"
-                  />
-                  <h1 className="ml-[.6rem] mt-[2.5rem] "> {item.username} </h1>
-
-                  <div className="absolute top-[8.5rem] ml-[1rem] -green-500 h-[3rem] w-[10rem] ">
-                    <h1>Name: {item.name}</h1>
-                  </div>
-
-                  <div className="absolute ml-[1rem] top-[11rem] w-[10rem] h-fit over -blue-500">
-                    <h1> Bio:</h1>
-                    <p>{item.bio}</p>
-                  </div>
-
-                  <button
-                    className=" mt-[17rem] mr-[7rem]  duration-300 hover:text-slate-800 h-[1.7rem]  "
-                    onClick={() => navigate(`/allblog/${item._id} `)}
-                  >
-                    See blogs
-                  </button>
-                </div>
-              </>
-            );
-          })}
-          
-        </div> */}
-        {/* <button
-        onClick={() => navigate("/")}
-        className="absolute bottom-[10rem] left-[14rem] text-white hover:bg-green-600 duration-300  w-[6rem] bg-green-700 rounded-[15px]"
-      >
-        Back
-      </button> */}
-        <div className=" bg-white w-[56rem] w-fit mt-[5rem] ml-[8rem] grid grid-cols-3 gap-[1rem] ">
+       
+        <div className=" bg-white w-fit mt-[5rem] ml-[8rem] grid grid-cols-3 gap-[1rem] ">
           {userData.map((item) => {
             return (
               <div className="border-black border-2 m-[rem] -red-400">

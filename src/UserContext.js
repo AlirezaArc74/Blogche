@@ -13,7 +13,7 @@ const UserContextProvider = ({ children }) => {
   const [eachBlogData, setEachBlogData] = useState({});
 
   const findBlogById = (id) => {
-    const p = blogList?.findIndex((item) => item._id == id);
+    const p = blogList?.findIndex((item) => item._id === id);
     if (p === -1) return null;
     return blogList[p];
   };

@@ -1,9 +1,7 @@
-import { useEffect, useContext, useState } from "react";
-import { UserContext } from "../UserContext";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 import "../App.css";
-import { RatingStar } from "rating-star";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 
 const AllBlog = () => {
@@ -21,7 +19,7 @@ const AllBlog = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         const xx = data.map((item) => {
           return {
             ...item,
@@ -61,38 +59,37 @@ const AllBlog = () => {
       });
   };
 
-  const submitComment = async (id) => {
-    fetch("http://localhost:4000/comment/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        auth: `ut ${cookies.get("ut")} `,
-      },
-      body: JSON.stringify({
-        text: comment,
-        blogId: id,
-      }),
-    })
-      .then((res) => {
-        console.log(res);
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        if (data.msg === "ok") return alert("Thanks for commenting");
-        else if (data.msg === "Unauthorized")
-          return alert("Please first login");
-        else if (data.msg === "bad request: bad inputs")
-          return alert("Please write a comment");
-      });
-  };
+  // const submitComment = async (id) => {
+  //   fetch("http://localhost:4000/comment/submit", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       auth: `ut ${cookies.get("ut")} `,
+  //     },
+  //     body: JSON.stringify({
+  //       text: comment,
+  //       blogId: id,
+  //     }),
+  //   })
+  //     .then((res) => {
+  //       console.log(res);
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       console.log(data);
+  //       if (data.msg === "ok") return alert("Thanks for commenting");
+  //       else if (data.msg === "Unauthorized")
+  //         return alert("Please first login");
+  //       else if (data.msg === "bad request: bad inputs")
+  //         return alert("Please write a comment");
+  //     });
+  // };
 
-  const onRatingChange = (value) => {
-    setRating(value);
-  };
+  // const onRatingChange = (value) => {
+  //   setRating(value);
+  // };
 
   const scrollClick = () => {
-    console.log("ok");
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -100,9 +97,11 @@ const AllBlog = () => {
   };
 
   const showTitleClick = (i) => {
+    // console.log(i)
     const arr = [...blogList];
 
-    const p = arr.findIndex((item, index) => index == i);
+    const p = arr.findIndex((item, index) => index === i);
+    // console.log(p)
     if (p === -1) return null;
 
     arr[p].isSelected = true;
@@ -113,7 +112,7 @@ const AllBlog = () => {
 
   const hideTitleClick = (i) => {
     const arr = [...blogList];
-    const p = arr.findIndex((item, index) => index == i);
+    const p = arr.findIndex((item, index) => index === i);
     if (p === -1) return;
     arr[p].isSelected = false;
 
@@ -131,7 +130,7 @@ const AllBlog = () => {
         Blogche.
       </button>
 
-      <div className="fixed right-[1rem] bottom-[0rem] cursor-pointer right-[2rem] z-40 ">
+      <div className="fixed bottom-[0rem] cursor-pointer right-[2rem] z-40 ">
         <ArrowCircleUpIcon onClick={scrollClick} sx={{ fontSize: 50 }} />
       </div>
 
@@ -155,7 +154,7 @@ const AllBlog = () => {
                   background: `url(${item.imgurl})`,
                   backgroundSize: "100% 100%",
                 }}
-                onMouseEnter={() => showTitleClick(i)}
+                onMouseEnter={() => { return (showTitleClick(i), console.log(i))}}
                 onMouseLeave={() => hideTitleClick(i)}
                 className="relative w-[5rem] sm:w-[10rem] lg:w-[15rem] mb-[2rem]  h-[5rem] sm:h-[10rem] lg:h-[15rem] duration-500 bg-black  hover:opacity-50 cursor-pointer"
               >
