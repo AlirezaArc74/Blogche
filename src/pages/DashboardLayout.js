@@ -2,19 +2,16 @@ import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../UserContext";
 import { Outlet, useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
-import blog2 from "../img/blog2.jpg";
 import Spinner from "../components/Waiting-spinner/Spinner";
-import falak from "../img/falak.webp";
 
 import constants from "../config/constants";
 
 const DashboardLayout = () => {
   const [loading, setLoading] = useState(true);
-  const [errorModal, setErrorModal] = useState(false);
   const [waitModal, setWaitModal] = useState(false);
   const [userData, setUserData] = useState();
 
-  const { userId, setUserId } = useContext(UserContext);
+  const { setUserId } = useContext(UserContext);
 
   const cookies = new Cookies();
   const navigate = useNavigate();
@@ -30,8 +27,6 @@ const DashboardLayout = () => {
         body: JSON.stringify({}),
       })
         .then((response) => {
-          // console.log(response);
-          // console.log("!!!!");
           return response.json();
         })
         .then((data) => {
@@ -98,6 +93,7 @@ const DashboardLayout = () => {
             <img
               className="ml-[2.5rem] rounded-[90px] w-[6rem] h-[6rem] mt-[8rem] "
               src={`${constants.domain}/${userData.avatar}`}
+              alt="avatar"
             />
             <button
               onClick={() => navigate("/newblog")}

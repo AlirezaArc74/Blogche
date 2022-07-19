@@ -5,8 +5,7 @@ import "../App.css";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 
 const AllBlog = () => {
-  const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState();
+  const [rating] = useState(0);
   const [blogList, setBlogList] = useState([]);
 
   const cookies = new Cookies();
@@ -30,7 +29,7 @@ const AllBlog = () => {
       });
   }, []);
 
-  const submitRate = async (id) => {
+  const submitRate = (id) => {
     console.log("333");
     fetch("http://localhost:4000/blog/submit-rate", {
       method: "POST",
@@ -59,35 +58,6 @@ const AllBlog = () => {
       });
   };
 
-  // const submitComment = async (id) => {
-  //   fetch("http://localhost:4000/comment/submit", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       auth: `ut ${cookies.get("ut")} `,
-  //     },
-  //     body: JSON.stringify({
-  //       text: comment,
-  //       blogId: id,
-  //     }),
-  //   })
-  //     .then((res) => {
-  //       console.log(res);
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       console.log(data);
-  //       if (data.msg === "ok") return alert("Thanks for commenting");
-  //       else if (data.msg === "Unauthorized")
-  //         return alert("Please first login");
-  //       else if (data.msg === "bad request: bad inputs")
-  //         return alert("Please write a comment");
-  //     });
-  // };
-
-  // const onRatingChange = (value) => {
-  //   setRating(value);
-  // };
 
   const scrollClick = () => {
     window.scrollTo({

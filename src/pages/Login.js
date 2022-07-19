@@ -12,25 +12,14 @@ import errorToast from "../components/errorToast";
 const Login = () => {
   const [usernameInput, setUsernameInput] = useState();
   const [passwordInput, setPasswordInput] = useState();
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword] = useState(false);
   const [learnModal, setLearnModal] = useState(false);
 
   const { modal } = useContext(UserContext);
-
   const navigate = useNavigate();
-  // console.log()
-
-  // console.log(loginInput)
-
-  const showPasswordClick = () => {
-    setShowPassword(!showPassword);
-  };
-
   const cookies = new Cookies();
 
-  // console.log(modal);
-
-  const login =  () => {
+  const login = () => {
     fetch("http://localhost:4000/user/login", {
       method: "POST", // or 'PUT'
       headers: {
@@ -71,21 +60,12 @@ const Login = () => {
     setLearnModal(!learnModal);
   };
 
-  // if (cookies.get("ut"))
-  //   return (
-  //     <div className="">
-  //       <img className="w-[72rem] h-[41.1rem] " src={lion} />
-  //       <div className="absolute left-[25rem] top-[6rem] bg-green-400 w-[22rem] h-[6rem] text-center  ">
-  //         <h1 className="mt-8"> Nice! You are login </h1>
-  //       </div>
-  //     </div>
-  //   );
-
+ 
   return (
     <div className=" h-[41rem] ">
       <Toaster />
 
-      <img className="h-screen  w-screen " src={giutarMan} />
+      <img alt="gitar man" className="h-screen  w-screen " src={giutarMan} />
 
       {modal ? (
         <div className="absolute left-[25rem] top-[6rem] bg-red-500 w-[22rem] h-[5rem] rounded-[20px] text-center ">

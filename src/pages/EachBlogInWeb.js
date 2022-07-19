@@ -44,7 +44,7 @@ const EachBlogInWeb = () => {
   }, []);
   console.log(commentData);
 
-  const submitRate = async (id) => {
+  const submitRate = (id) => {
     console.log("333");
     fetch("http://localhost:4000/blog/submit-rate", {
       method: "POST",
@@ -58,7 +58,6 @@ const EachBlogInWeb = () => {
       }),
     })
       .then((res) => {
-        // console.log(res);
         return res.json();
       })
       .then((data) => {
@@ -73,7 +72,7 @@ const EachBlogInWeb = () => {
       });
   };
 
-  const submitComment = async (id) => {
+  const submitComment = (id) => {
     fetch("http://localhost:4000/comment/submit", {
       method: "POST",
       headers: {
@@ -86,7 +85,6 @@ const EachBlogInWeb = () => {
       }),
     })
       .then((res) => {
-        // console.log(res);
         return res.json();
       })
       .then((data) => {
@@ -137,6 +135,7 @@ const EachBlogInWeb = () => {
               {eachBlogData.title}
             </h1>
             <img
+            alt="blog"
               className="h-[20rem] w-[35rem] mt-[2rem] "
               src={eachBlogData.imgurl}
             />
@@ -144,6 +143,7 @@ const EachBlogInWeb = () => {
 
           <div className="ml-[12rem] mt-[2.5rem] -blue-500 flex -red-400 w-[20rem] ">
             <img
+            alt="avatar"
               className="w-[5rem] h-[5rem] rounded-[90px] "
               src={`${constants.domain}/${eachBlogData.creator?.avatar}`}
             />

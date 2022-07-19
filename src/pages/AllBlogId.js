@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { RatingStar } from "rating-star";
-import Cookies from "universal-cookie";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import constants from "../config/constants";
 import "../App.css";
@@ -11,7 +9,6 @@ const AllBlogId = () => {
   const [userData, setUserData] = useState();
 
   let { id } = useParams();
-  const cookies = new Cookies();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -45,11 +42,9 @@ const AllBlogId = () => {
   useEffect(() => {
     fetch(`http://localhost:4000/user/singleUser/${id}`)
       .then((res) => {
-        // console.log(res)
         return res.json();
       })
       .then((data) => {
-        // console.log(data)
         setUserData(data);
       });
   }, []);

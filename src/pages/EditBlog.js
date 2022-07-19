@@ -19,7 +19,7 @@ const EditBlog = () => {
   console.log(id)
 
 
-  const editBlog = async () => {
+  const editBlog = () => {
     console.log("salam salam");
     fetch("http://localhost:4000/blog/edit", {
       method: "POST", // or 'PUT'

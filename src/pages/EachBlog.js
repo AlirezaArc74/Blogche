@@ -1,6 +1,5 @@
-import { useNavigate, useParams, useResolvedPath } from "react-router-dom";
-import { useContext, useEffect, useState, React } from "react";
-import { UserContext } from "../UserContext";
+import { useNavigate, useParams } from "react-router-dom";
+import {  useEffect, useState, React } from "react";
 import constants from "../config/constants";
 
 const EachBlog = () => {
@@ -34,13 +33,14 @@ const EachBlog = () => {
             <h1 className=" text-center mb-[2rem] font-bold text-[20px]  w-[35rem]">
               {eachBlogData.title}
             </h1>
-            <img className="h-[20rem] w-[35rem] mt-[2rem] " src={eachBlogData.imgurl} />
+            <img alt="blog" className="h-[20rem] w-[35rem] mt-[2rem] " src={eachBlogData.imgurl} />
           </div>
 
           <div className="ml-[15rem] mt-[4rem] ">
             <img
               className="w-[5rem] h-[5rem] rounded-[90px] "
               src={`${constants.domain}/${eachBlogData.creator?.avatar}`}
+              alt="avatar"
             />
             <p className="  w-[5rem] mt-[1rem]  text-center">
               {eachBlogData.creator?.username}
